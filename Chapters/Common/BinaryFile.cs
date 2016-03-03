@@ -140,7 +140,6 @@ namespace Chapters
             this[first] = this[second];
             this[second] = temp;
         }
-
        
         public int FindIndex(Predicate<byte> predicate)
         {
