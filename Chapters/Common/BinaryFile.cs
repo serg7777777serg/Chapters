@@ -36,6 +36,7 @@ namespace Chapters
             _source.Read(source, 0, source.Length);
         }
 
+
         public static BinaryFile Create(Chapter8TaskType type, object param = null)
         {
             switch (type)
@@ -44,7 +45,6 @@ namespace Chapters
                     return new BinaryFile(param as byte[]);
                 case Chapter8TaskType.FromStream:
                     return new BinaryFile(param as Stream);
-                
 
                 case Chapter8TaskType.One:
                     return null;
@@ -124,10 +124,7 @@ namespace Chapters
 
         public static bool IsSimple(int p)
         {
-            if (p < 0)
-                throw new ArgumentException("Invalid argument!");
-
-            if (p == 1)
+            if (p <= 1)
                 return false;
 
             for (var i = 2; i <= Math.Ceiling(Math.Sqrt(p)); i++)
@@ -139,11 +136,10 @@ namespace Chapters
 
         public void Swap(int first, int second)
         {
-            var temp = source[first];
-            source[first] = source[second];
-            source[second] = temp;
+            var temp = this[first];
+            this[first] = this[second];
+            this[second] = temp;
         }
-
        
         public int FindIndex(Predicate<byte> predicate)
         {

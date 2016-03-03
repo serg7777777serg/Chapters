@@ -57,15 +57,15 @@ namespace Chapters
                     var A7 = Matrix.Create(Chapter7TaskType.FromMatrix, a7source);
                     var X7 = Matrix.Create(Chapter7TaskType.FromArray, new[] { 1.0, -1.0, 3.0, -1.0 });
                     var tt = ~X7;
-                    var Y7 = A7.Determinant() != 0 ? (!A7) * tt : Matrix.Create(Chapter7TaskType.FromArray, 0);
-                    return new object[] {Y7};
+                    var res7 = A7.Determinant() != 0 ? (!A7) * tt : Matrix.Create(Chapter7TaskType.FromArray, 0);
+                    return new object[] {res7};
 
                 case TaskNumber.Task8:
                     double[,] a8source = { { 3.75, -0.28, 0.17 }, { 2.11, -0.11, -0.12 }, { 0.22, -3.17, 1.81 } };
                     double[] b8source = { 0.75, 1.11, 0.05 };
                     var A8 = Matrix.Create(Chapter7TaskType.FromMatrix, a8source);
-                    var X8 = Matrix.Create(Chapter7TaskType.FromArray, A8.Slau(b8source).Item2);
-                    return new object[] {X8, X8.VectorLength()};
+                    var res8 = Matrix.Create(Chapter7TaskType.FromArray, A8.Slau(b8source).Item2);
+                    return new object[] {res8, res8.VectorLength()};
 
                 case TaskNumber.Task9:
                     var a9source = new[,] { { 5.7, -7.8, -5.6, -8.3 }, { 6.6, 13.1, -6.3, 4.3 }, { 14.7, -2.8, 5.6, -12.1 }, { 8.5, 12.7, -23.7, 5.7 } };
@@ -73,8 +73,8 @@ namespace Chapters
                     var y9source = new double[] { 1, 1, 2, -3 };
                     var A9 = Matrix.Create(Chapter7TaskType.FromMatrix, a9source);
                     var Y9 = Matrix.Create(Chapter7TaskType.FromArray, y9source);
-                    var X9 = Matrix.Create(Chapter7TaskType.FromArray, A9.Slau(b9source).Item2);
-                    return new object[] { X9.ScalarProduct(Y9) };
+                    var res9 = Matrix.Create(Chapter7TaskType.FromArray, A9.Slau(b9source).Item2);
+                    return new object[] { res9.ScalarProduct(Y9) };
 
                 case TaskNumber.Task10:
                     var a10source = new[,] { { 4.4, -2.5, 19.2, -10.8 }, { 5.5, -9.3, -14.2, 13.2 }, { 7.1, -11.5, 5.3, -6.7 }, { 14.2, 23.4, -8.8, 5.3 } };
@@ -115,8 +115,7 @@ namespace Chapters
                     var a14source = new double[,] { { 2, 1, 5, 2 }, { 5, 2, 2, 6 }, { 2, 2, 1, 2 }, { 1, 3, 3, 1 } };
                     var b14source = new double[] { 3, 1, 2, 1 };
                     var A14 = ~(Matrix.Create(Chapter7TaskType.FromMatrix, a14source));
-                    var X14 = Matrix.Create(Chapter7TaskType.FromArray, A14.Slau(b14source).Item2);
-                    var res14 = X14;
+                    var res14 = Matrix.Create(Chapter7TaskType.FromArray, A14.Slau(b14source).Item2);
                     return new object[] {res14};
 
                 case TaskNumber.Task15:
@@ -124,8 +123,7 @@ namespace Chapters
                     var b15source = new double[] { 3, 1, 2, 1 };
                     var temp15 = ~(Matrix.Create(Chapter7TaskType.FromMatrix, a15source));
                     var A15 = 2 * (temp15 * temp15);
-                    var X15 = Matrix.Create(Chapter7TaskType.FromArray, A15.Slau(b15source).Item2);
-                    var res15 = X15;
+                    var res15 = Matrix.Create(Chapter7TaskType.FromArray, A15.Slau(b15source).Item2);
                     return new object[] {res15};
 
                 case TaskNumber.Task16:
@@ -156,10 +154,10 @@ namespace Chapters
                 case TaskNumber.Task19:
                     var a19source = new[,] { { 1, 0.42, 0.54, 0.66 }, { 0.42, 1, 0.32, 0.44 }, { 0.54, 0.32, 1, 0.22 }, { 0.66, 0.44, 0.22, 1 } };
                     var A19 = Matrix.Create(Chapter7TaskType.FromMatrix, a19source);
-                    Console.WriteLine("IsSimmetrical ~A == A ? Result: {0}", A19.IsSimmetrical());
-                    Console.WriteLine("!A - ? Result:\n{0}", !A19);
-                    var res19 = (A19 * (!A19)) == Matrix.Create(Chapter7TaskType.EGen, A19.Rows);
-                    return new object[] {res19};
+                    var issim =  A19.IsSimmetrical();
+                    var invMatrix = !A19;
+                    var res19 = (A19 * invMatrix) == A19;
+                    return new object[] {issim, invMatrix, res19};
 
                 case TaskNumber.Task20:
                     var a20source = new[,] { { -2, 3.01, 0.12, -0.11 }, { 2.92, -0.17, 0.11, 0.22 }, { 0.66, 0.52, 3.17, 2.11 }, { 3.01, 0.42, -0.27, -0.15 } };
@@ -178,9 +176,9 @@ namespace Chapters
                     var a21source = new[,] { { 0.25, 0.33, 1.25, -0.667 }, { 0.333, 0.25, -0.667, 1.333 }, { 0.2, 0.167, 2.2, 1.25 }, { 0.1, 0.143, 3.1, -0.75 } };
                     var x21source = new double[] { 1, 1, 1, 1 };
                     var A21 = Matrix.Create(Chapter7TaskType.FromMatrix, a21source);
-                    var Y21 = A21.Determinant() != 0 ? Matrix.Create(Chapter7TaskType.FromArray, A21.Slau(x21source).Item2) : Matrix.Create(Chapter7TaskType.FromArray, 0);
-                    Console.WindowWidth = Y21.Cols * 22;
-                    return new object[] {Y21};
+                    var res21 = A21.Determinant() != 0 ? Matrix.Create(Chapter7TaskType.FromArray, A21.Slau(x21source).Item2) : Matrix.Create(Chapter7TaskType.FromArray, 0);
+                    Console.WindowWidth = res21.Cols * 22;
+                    return new object[] {res21};
 
                 case TaskNumber.Task22:
                     var a22source = new[,] { { 0.42, 0.26, 0.33, -0.22 }, { 0.74, -0.55, 0.28, -0.65 }, { 0.88, 0.42, -0.33, 0.75 }, { 0.92, 0.82, -0.62, 0.75 } };
@@ -203,16 +201,15 @@ namespace Chapters
                 case TaskNumber.Task24:
                     var a24source = new[,] { { -1.09, 7.56, 3.45, 0.78 }, { 3.33, 4.45, -0.21, 3.44 }, { 2.33, -4.45, 0.17, 2.21 }, { 4.03, 1, 3.05, 0.11 } };
                     var A24 = !(Matrix.Create(Chapter7TaskType.FromMatrix, a24source));
-                    var a20sqrt = A24.SqrtSumSquaredElements();
-                    return new object[] {a20sqrt};
+                    var res24 = A24.SqrtSumSquaredElements();
+                    return new object[] {res24};
 
                 case TaskNumber.Task25:
                     var a25source = new[,] { { 8.2, -3.2, 14.2, 14.8 }, { 5.6, -12, 15, -6.4 }, { 5.7, 3.6, -12.4, -2.3 }, { 6.8, 13.2, -6.3, -8.7 } };
                     var b25source = new[] { -8.4, 4.5, 3.3, 14.3 };
                     var A25 = Matrix.Create(Chapter7TaskType.FromMatrix, a25source);
-                    var X25 = Matrix.Create(Chapter7TaskType.FromArray, A25.Slau(b25source).Item2);
-                    var res25 = X25;
-                    var check25 = A25 * (~X25);
+                    var res25 = Matrix.Create(Chapter7TaskType.FromArray, A25.Slau(b25source).Item2);     
+                    var check25 = A25 * (~res25);
                     return new object[] {res25, check25};
 
                 default:

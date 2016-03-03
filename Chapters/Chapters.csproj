@@ -7,8 +7,8 @@
     <ProjectGuid>{A2BA6689-8821-44C2-95DC-C42E7764352B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Determinant</RootNamespace>
-    <AssemblyName>Determinant</AssemblyName>
+    <RootNamespace>Chapters</RootNamespace>
+    <AssemblyName>Chapters</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,11 +44,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,13 +66,16 @@
   <ItemGroup>
     <Compile Include="Common\BinaryFile.cs" />
     <Compile Include="Enumerations\Chapter8TaskType.cs" />
+    <Compile Include="Enumerations\Chapter9TaskType.cs" />
     <Compile Include="Factories\Chapter7Factory.cs" />
     <Compile Include="Factories\Chapter8Factory.cs" />
     <Compile Include="Common\Matrix.cs" />
+    <Compile Include="Factories\Chapter9Factory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enumerations\TaskNumber.cs" />
     <Compile Include="Enumerations\Chapter7TaskType.cs" />
+    <Compile Include="Common\StringAlgorithms.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

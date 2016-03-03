@@ -12,7 +12,7 @@ namespace Chapters
         public static object[] PerformTask(TaskNumber number)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = @"Determinant.Embedded_resources.UserInputFile.bin";
+            var resourceName = @"Chapters.Embedded_resources.UserInputFile.bin";
             var resources = assembly.GetManifestResourceNames();
 
             switch (number)
@@ -32,17 +32,15 @@ namespace Chapters
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A2 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        byte[] temp2 = A2.Where(x => x%2 == 1).ToArray();
-                        var A2Odd = BinaryFile.Create(Chapter8TaskType.FromArray, temp2);     
-                        var A2OddDoubledOrdered = (A2Odd*2).data.OrderBy(x => x);
-                        return new object[] { A2OddDoubledOrdered.Count() };
+                        var temp2 = A2.Where(x => x%2 == 1).OrderBy(x => x).Select(x => (byte) (x*2)).ToArray();
+                        return new object[] { temp2.Length };
                     }
 
                 case TaskNumber.Task3:
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A3 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        byte[] temp3 = A3.Where(x => x>0 && x%5==0).OrderByDescending(x => x).ToArray();
+                        var temp3 = A3.Where(x => x>0 && x%5==0).OrderByDescending(x => x);
                         return new object[] { temp3.Count() };
                     }
 
@@ -50,38 +48,39 @@ namespace Chapters
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A4 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var A4PosSimple = A4.Where(x => x > 0 && BinaryFile.IsSimple(x) == true).ToArray();
-                        var A4NegSimple = A4.Where(x => x < 0 && BinaryFile.IsSimple(x) == true).ToArray();
+                        var A4PosSimple = A4.Where(x => x > 0 && BinaryFile.IsSimple(x)).Count();
+                        var A4NegSimple = A4.Where(x => x < 0 && BinaryFile.IsSimple(x)).Count();
                         var A4ZeroCount = A4.Where(x => x == 0).Count();
-                        return new object[] { A4PosSimple.Count(), A4NegSimple.Count(), A4ZeroCount };
+                        return new object[] { A4PosSimple, A4NegSimple, A4ZeroCount };
                     }
 
                 case TaskNumber.Task5:
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A5 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var minIndex = A5.FindIndex(x => x==A5.Min());
-                        var A5NotSimpleBeforeMin = A5.Where((x,i) => BinaryFile.IsSimple(x) == false && i < minIndex );
-                        return new object[] { A5NotSimpleBeforeMin.Count() };
+                        byte min = A5.Min();
+                        var minIndex = A5.FindIndex(x => x==min);
+                        var A5NotSimpleBeforeMin = A5.Where((x, i) => !BinaryFile.IsSimple(x) && i < minIndex).Count();
+                        return new object[] { A5NotSimpleBeforeMin };
                     }
 
                 case TaskNumber.Task6:
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A6 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var maxIndex = A6.FindIndex(x => x == A6.Max());
-                        var A6NotZeroAfterMax = A6.Where((x, i) => x!=0 && i > maxIndex);
-                        return new object[] { A6NotZeroAfterMax.Count() };
+                        var max = A6.Max();
+                        var maxIndex = A6.FindIndex(x => x == max);
+                        var A6NotZeroAfterMax = A6.Where((x, i) => x != 0 && i > maxIndex).Count();
+                        return new object[] { A6NotZeroAfterMax };
                     }
 
                 case TaskNumber.Task7:
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A7 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var copy = new double[A7.Length];
-                        Array.Copy(A7.ToArray(), copy, A7.Length);
-                        var positiveAvg = Math.Ceiling(copy.Where(x => x>0).Average());
-                        var A7BiggerThanPositiveAvg = copy.Where(x => x > positiveAvg).Count();
+                        var _TMP = A7.Where((x, i) => x > 0).Aggregate(0, (x,y) => x+=y);
+                        var positiveAvg = ((double)_TMP) / A7.Count();
+                        var A7BiggerThanPositiveAvg = A7.Where(x => x > positiveAvg).Count();
                         return new object[] { A7BiggerThanPositiveAvg };
                     }
 
@@ -89,29 +88,35 @@ namespace Chapters
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A8 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var minIndex = A8.FindIndex(x => x == A8.Min());
-                        var maxIndex = A8.FindIndex(x => x == A8.Max());
-                        var A8BeforeMinAfterMax = A8.Where((x, i) => i<minIndex && i > maxIndex);
-                        return new object[] { A8BeforeMinAfterMax.Count() };
+                        var min = A8.Min();
+                        var max = A8.Max();
+                        var minIndex = A8.FindIndex(x => x == min);
+                        var maxIndex = A8.FindIndex(x => x == max);
+                        var A8BeforeMinAfterMax = A8.Where((x, i) => i > maxIndex && i<minIndex).Count();
+                        return new object[] { A8BeforeMinAfterMax };
                     }
 
                 case TaskNumber.Task9:
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A9 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var minIndex = A9.FindIndex(x => x == A9.Min());
-                        var maxIndex = A9.FindIndex(x => x == A9.Max());
-                        var A9BeforeMinAfterMax = minIndex < maxIndex ? A9.Where((x, i) => i > minIndex && i < maxIndex) : A9.Where((x, i) => i < minIndex && i > maxIndex);
-                        return new object[] { A9BeforeMinAfterMax.Count() };
+                        var min = A9.Min();
+                        var max = A9.Max();
+                        var minIndex = A9.FindIndex(x => x == min);
+                        var maxIndex = A9.FindIndex(x => x == max);
+                        var A9BetweenMaxAndMin = minIndex < maxIndex ? A9.Where((x, i) => i > minIndex && i < maxIndex).Count() : A9.Where((x, i) => i < minIndex && i > maxIndex).Count();
+                        return new object[] { A9BetweenMaxAndMin };
                     }
 
                 case TaskNumber.Task10:
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A10 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var A10EvenOdd =  BinaryFile.Create(Chapter8TaskType.FromArray, A10.Where(x => x % 2 == 0).Concat(A10.Where(x => x % 2 == 1)).ToArray<byte>());
-                        var maxOddIndex = A10EvenOdd.FindIndex(x => x%2==1 && x == A10.Max());
-                        var minEvenIndex = A10EvenOdd.FindIndex(x => x%2 ==0 && x == A10.Min());
+                        var A10EvenOdd = BinaryFile.Create(Chapter8TaskType.FromArray, A10.Where(x => x % 2 == 0).Concat(A10.Where(x => x % 2 == 1)).ToArray<byte>());
+                        var max = A10EvenOdd.Max();
+                        var min = A10EvenOdd.Min();
+                        var maxOddIndex = A10EvenOdd.FindIndex(x => x%2==1 && x == max);
+                        var minEvenIndex = A10EvenOdd.FindIndex(x => x%2 ==0 && x == min);
                         if (maxOddIndex != -1 && minEvenIndex != -1)
                             return new object[] { A10EvenOdd.Count(), maxOddIndex, minEvenIndex };
                         else return new object[] { 0, 0, 0 };
@@ -186,7 +191,7 @@ namespace Chapters
                             return new object[] { 0,0,0,0,0,0};
                         var temp1 = A14[firstPerfectIndex];
                         var temp2 = A14[lastNegativeIndex];
-
+                        
                         A14.Swap(firstPerfectIndex, lastNegativeIndex);
                         A14.WriteData(14);
 
@@ -224,9 +229,10 @@ namespace Chapters
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A18 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var res18 = A18.Where(x => x!=0).Where(x=>BinaryFile.IsSimple(x));
-                        var res181 = A18.Where(x => x!=0).Where(x=>BinaryFile.IsPerfect(x));
-                        return new object[] { res18.Count(), res18.Max(), res181.Count(), res181.Min() };
+                        var differentValues = A18.Distinct();
+                        var res18 = differentValues.Where(x=>BinaryFile.IsSimple(x)).ToArray();
+                        var res181 = differentValues.Where(x=>BinaryFile.IsPerfect(x)).ToArray();
+                        return new object[] { A18.Count(x => res18.Contains(x)), res18.Max(), A18.Count(x=> res181.Contains(x)), res181.Min() };
                     }
 
                 case TaskNumber.Task19:
@@ -271,17 +277,24 @@ namespace Chapters
                     using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                     {
                         var A22 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var index = A22.FindLastIndex(x => BinaryFile.IsSimple(x));
+                        var differentValues = A22.Distinct();
+                        var differentSimples = differentValues.Where(x => BinaryFile.IsSimple(x));
+                        var differentPerfects = differentValues.Where(x => BinaryFile.IsPerfect(x));
 
-                        var minPrefect = A22.Where(x => BinaryFile.IsPerfect(x)).Min();
-                        var index2 = A22.FindIndex(x => x == minPrefect);
+                        var index = A22.FindLastIndex(x => differentSimples.Contains(x));
+                        
+                        var minPerfect = differentPerfects.Min();
+                        var index2 = A22.FindIndex(x => x == minPerfect);
 
                         if (index == -1 || index2 == -1)
                             return new object[] {0, 0, 0};
+                        var oldSLastimple = A22[index];
+                        var oldMinPerfect = A22[index2];
 
                         A22.Swap(index, index2);
-
-                        return new object[] { A22[index], index, minPrefect};
+                        var newSLastimple = A22[index];
+                        var newMinPerfect = A22[index2];
+                        return new object[] { oldSLastimple, oldMinPerfect, newSLastimple, newMinPerfect};
                     }
 
                 case TaskNumber.Task23:
