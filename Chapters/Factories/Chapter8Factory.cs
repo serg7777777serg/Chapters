@@ -9,16 +9,22 @@ namespace Chapters
 {
     class Chapter8Factory
     {
-        public static object[] PerformTask(TaskNumber number)
+        private static Stream ReadData()
         {
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = @"Chapters.Embedded_resources.UserInputFile.bin";
-            var resources = assembly.GetManifestResourceNames();
-
+            //var resources = assembly.GetManifestResourceNames();
+            return assembly.GetManifestResourceStream(resourceName);
+        }
+        public static object[] PerformTask(TaskNumber number)
+        {
+            using (var stream = ReadData())
+            {
+                
             switch (number)
             {
                 case TaskNumber.Task1:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A1 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var A1Even = A1.Where(x => x%2 == 0);
@@ -29,7 +35,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task2:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A2 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var temp2 = A2.Where(x => x%2 == 1).OrderBy(x => x).Select(x => (byte) (x*2)).ToArray();
@@ -37,7 +43,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task3:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A3 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var temp3 = A3.Where(x => x>0 && x%5==0).OrderByDescending(x => x);
@@ -45,7 +51,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task4:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A4 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var A4PosSimple = A4.Where(x => x > 0 && BinaryFile.IsSimple(x)).Count();
@@ -55,7 +61,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task5:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A5 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         byte min = A5.Min();
@@ -65,7 +71,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task6:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A6 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var max = A6.Max();
@@ -75,7 +81,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task7:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A7 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var _TMP = A7.Where((x, i) => x > 0).Aggregate(0, (x,y) => x+=y);
@@ -85,7 +91,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task8:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A8 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var min = A8.Min();
@@ -97,7 +103,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task9:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A9 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var min = A9.Min();
@@ -109,7 +115,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task10:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A10 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var A10EvenOdd = BinaryFile.Create(Chapter8TaskType.FromArray, A10.Where(x => x % 2 == 0).Concat(A10.Where(x => x % 2 == 1)).ToArray<byte>());
@@ -123,7 +129,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task11:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A11 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var Negative = A11.Where(x => x < 0);
@@ -145,7 +151,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task12:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A12 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var avg = Math.Ceiling(A12.Average(x => x));
@@ -155,7 +161,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task13:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A13 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var min = A13.Min();
@@ -182,7 +188,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task14:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A14 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var firstPerfectIndex = A14.FindIndex(x => BinaryFile.IsPerfect(x));
@@ -201,7 +207,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task15:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A15 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var res15 = A15.Where(x => BinaryFile.IsSimple(x)).OrderByDescending(x=>x);
@@ -209,7 +215,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task16:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A16 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var res16 = A16.FindLastPerfectSequence();
@@ -218,7 +224,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task17:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A17 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var res17 = A17.Where(x=>x<0).Count();
@@ -226,7 +232,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task18:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A18 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var differentValues = A18.Distinct();
@@ -236,7 +242,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task19:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A19 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var max = A19.Max();
@@ -247,7 +253,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task20:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A20 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var min = A20.Min();
@@ -258,7 +264,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task21:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A21 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var _TMP = A21.Where( (x, i) => x%2==0 ).Aggregate(new Point(0, 0), (x, y) => {
@@ -274,7 +280,7 @@ namespace Chapters
 
 
                 case TaskNumber.Task22:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A22 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var differentValues = A22.Distinct();
@@ -298,7 +304,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task23:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A23 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var res23 = A23.FindLastNegativeSequence().Aggregate(0, (x, y) => x+=y);
@@ -307,7 +313,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task24:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A24 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var res24 = A24.FindFirstSimpleSequenceProduction().Aggregate(0, (x, y) => x*=y);
@@ -316,7 +322,7 @@ namespace Chapters
                     }
 
                 case TaskNumber.Task25:
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    
                     {
                         var A25 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var res25 = A25.Where(x=>BinaryFile.IsSimple(x)).Aggregate(0, (x, y) => x+=y);
@@ -325,6 +331,7 @@ namespace Chapters
                     }
                 default:
                     throw new ArgumentOutOfRangeException(number.GetType().Name, number, null);
+            }
             }
         }
     }
