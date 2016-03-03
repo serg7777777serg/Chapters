@@ -12,9 +12,15 @@ namespace Chapters.Common
     {
 
         private string Input { get; set; }
+        private string[] Inputs { get; set; }
 
-        public StringAlgorithms(string input)
+        public StringAlgorithms(string input, bool isMultilineString = false)
         {
+            if (isMultilineString)
+            {
+                Inputs = input.Split(new[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries);
+                return;
+            }
             Input = input;
         }
 
