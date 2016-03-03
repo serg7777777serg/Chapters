@@ -1370,7 +1370,24 @@ namespace Chapters
 
             #endregion
 
+            #region 15
 
+            var task915 = Tuple.Create(TaskNumber.Task15, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0}: Words that end with a vowel letter count - ?", TaskNumber.Task15);
+                var res915 = Chapter9Factory.PerformTask(TaskNumber.Task15);
+                sb.AppendFormat("\nResult - {0}", res915[0]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+
+                return sb.ToString();
+            }));
+
+            #endregion
 
 
 
@@ -1378,10 +1395,10 @@ namespace Chapters
 
 
             var tasks = new[] {
-                /*
+                
                 task701, task702, task703, task704, task705, task706, task707, task708, task709, task710, task711, task712, task713, task714, task715, task716, task717, task718, task719, task720, task721, task722, task723, task724, task725,
                 task801, task802, task803, task804, task805, task806, task807, task808, task809, task810, task811, task812, task813, task814, task815, task816, task817, task818, task819, task820, task821, task822, task823, task824, task825,
-                task901, task902, task903,*/ task904, task905, task906, task907/*, task908, task909, task910, task911, task912, task913*/
+                task901, task902, task903, task904, task905, task906, task907, task908, task909, task910, task911, task912, task913, task914, task915
                 
                 
             }.ToList();
@@ -1393,7 +1410,7 @@ namespace Chapters
             var syncRoot = new object();
             var elemsTotal = tasks.Count;
             var stopWatch = Stopwatch.StartNew();
-            Parallel.For((long) 0, elemsTotal, new ParallelOptions() {MaxDegreeOfParallelism = Environment.ProcessorCount } , i =>
+            Parallel.For((long) 0, elemsTotal, new ParallelOptions() {MaxDegreeOfParallelism = Environment.ProcessorCount*2 } , i =>
             {
                 var index = (int) i;
                 var item = tasks[index];

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,6 +17,27 @@ namespace Chapters.Common
         {
             Input = input;
         }
+
+        public StringAlgorithms(char[] input)
+        {
+            foreach(var i in input)
+                Input += i;
+        }
+
+        //private StringAlgorithms(Stream _source)
+        //{
+        //    source = new byte[_source.Length];
+        //    _source.Read(source, 0, source.Length);
+
+        //    FileStream fin;
+        //    string l;
+        //    fin = new FileStream("D:/1.txt", FileMode.Open);
+        //    StreamReader fstr_in = new StreamReader(fin);
+        //    l = fstr_in.ReadLine();
+        //    Console.Write(l);
+        //    fstr_in.Close();
+
+        //}
 
         #region Interface implementations
 
@@ -37,10 +59,36 @@ namespace Chapters.Common
             throw new NotImplementedException();
         }
 
-        
+
         #endregion
 
+        public override string ToString()
+        {
+            return Input;
+        }
 
+        private IEnumerable<Tuple<int, int>> FindSequences(Predicate<char> isThisBelongsToSequence)
+        {
+            var result = new List<Tuple<int, int>>();
+
+            for (var i = 0; i < Input.Length; ++i)
+            {
+                if (isThisBelongsToSequence(Input[i]))
+                {
+                    var j = i + 1;
+
+                    for (; j < Input.Length; ++j)
+                        if (!isThisBelongsToSequence(Input[j]))
+                            break;
+
+                    result.Add(Tuple.Create(i, j >= Input.Length ? Input.Length - 1 : j - 1));
+
+                    i = j;
+                }
+            }
+
+            return result;
+        }
 
         public static StringAlgorithms Create(Chapter9TaskType type, object param = null)
         {
@@ -48,6 +96,8 @@ namespace Chapters.Common
             {
                 case Chapter9TaskType.FromString:
                     return new StringAlgorithms(param as string);
+                case Chapter9TaskType.FromCharsArray:
+                    return new StringAlgorithms(param as char[]);
 
                 //case Chapter9TaskType.FromFile:
                 //    return new StringAlgorithms(param as Stream);
@@ -55,15 +105,16 @@ namespace Chapters.Common
                 default:
                     throw new ArgumentOutOfRangeException(type.GetType().Name, type, null);
             }
-
         }
 
-        //1
+        public static bool IsPalindrome(string s)
+        {
+            for (int i = 1, j = s.Length - 1; i < j; i++, j--)
+                if (char.ToLower(s[i]) != char.ToLower(s[j]))
+                    return false;
+            return true;
+        }
 
-        //2
-               
-        //3
-               
         //4
         public void RemoveSpacesBeforePunctuation()
         {
@@ -101,30 +152,12 @@ namespace Chapters.Common
                     {
                         Input = Input.Insert(i, n1.ToString());
                         i++;
-                    }
-                
+                    }        
         }
 
         //7
         public List<int> ExtractNumbers()
         {
-            //var matches = Regex.Matches(Input, @"\d+");//Input - данна€ строка
-            //List<int> res = new List<int>();
-            //foreach (Match m in matches)
-            //    res.Add(Convert.ToInt32(m.Value));
-            //return res;
-
-            /*
-            List<int> res = new List<int>();
-            for(int i=0; i<str.Length; i++)
-            {
-                string num="";
-                while(str[i].IsDigit() && i<str.Length)
-                    num+=str[i]; i++;
-
-                res.Add(Convert.ToInt32(num));
-            }
-            */
             var numberSequence = FindSequences(num => char.IsDigit(num)).ToList();
             if (numberSequence.Count == 0)
                 return new List<int> { 0 };
@@ -143,19 +176,27 @@ namespace Chapters.Common
         }
    
         //10
-        public List<string> ExtracthWords()
+        public void DeleteMaxLengthWords()
         {
-            List<string> res = new List<string>();
-            for (int i = 0; i < Input.Length; i++)
+            var wordSequences = FindSequences(ch => char.IsLetter(ch)).ToList();
+            var maxLength = wordSequences.Max(x=>x.Item2-x.Item1+1);
+            var index = wordSequences.FindIndex( x=> x.Item2-x.Item1+1 == maxLength );
+            var sb = new StringBuilder();
+            // Here we extracted word sequences, next we need to reverse
+            for (int i = 0, currentSequence = 0; i < Input.Length; ++i)
             {
-                string word = "";
-                while (char.IsLetter(Input[i]) && i < Input.Length)
+                if (i == wordSequences[currentSequence].Item1)
                 {
-                    word += Input[i]; i++;
+                    var word = Input.Substring(i, wordSequences[currentSequence].Item2 - i + 1);
+                    if(currentSequence != index)
+                        sb.Append(word);
+                    i = wordSequences[currentSequence].Item2;
+                    ++currentSequence;
                 }
-                res.Add(word);
+                else
+                    sb.Append(Input[i]);
             }
-            return res;
+            Input = sb.ToString();
         }
 
         //12
@@ -163,9 +204,12 @@ namespace Chapters.Common
         {
             if (char.IsPunctuation(Input[Input.Length - 1]))
                 Input += ' ';
-            for (int i = 0; i < Input.Length-1; i++)
+            for (int i = 0; i < Input.Length - 1; i++)
                 if (char.IsPunctuation(Input[i]))
-                    Input.Insert(i+1, " ");
+                {
+                    Input = Input.Insert(i + 1, " ");
+                    ++i;
+                }
         }
 
         //13
@@ -190,67 +234,27 @@ namespace Chapters.Common
 
             Input = sb.ToString();
         }
-        public override string ToString()
-        {
-            return Input;
-        }
-
+        
         //14
-        private void FindMinWord()
+        public int MinWordCount()
         {
-            int temp = 0;
-            int len = 0;
-            bool isFirst = false;
-            int start = 0;
-            int step = 1;
-
-            for (int i = 0; i < Input.Length; i+=step)
-            {
-               
-                    if (char.IsLetter(Input[i]) && !isFirst)
-                    {
-                        isFirst = true;
-                        start = i;
-                        temp++;
-                    }
-                    if (char.IsLetter(Input[i]) && isFirst)
-                        temp++;
-                    else
-                    {
-                        if (temp < len)
-                            len = temp;
-                        isFirst = false;
-                        temp = 0;
-                        start = 0;
-                    }
-               
-            }
+            var wordSequences = FindSequences(ch => char.IsLetter(ch)).ToList();
+            var minLength = wordSequences.Min(x => x.Item2 - x.Item1 + 1);
+            var count = wordSequences.Count(x => x.Item2 - x.Item1 + 1 == minLength);
+            return count;
         }
 
-        // I'll write this method and i'm sure you'll reuse it in a future multiple times
-        private IEnumerable<Tuple<int, int>> FindSequences(Predicate<char> isThisBelongsToSequence)
+        //15
+        public int VowelEndLetterCount()
         {
-            var result = new List<Tuple<int, int>>();
+            // ¬ычислить, сколько в строке слов, заканчивающихс€ гласной буквой
 
-            for(var i = 0; i < Input.Length; ++i)
-            {
-                if (isThisBelongsToSequence(Input[i]))
-                {
-                    var j = i + 1;
-
-                    for (; j < Input.Length; ++j)
-                        if (!isThisBelongsToSequence(Input[j]))
-                            break;
-
-                    result.Add(Tuple.Create(i, j >= Input.Length ? Input.Length - 1 : j-1));
-
-                    i = j;
-                }
-            }
-
-            return result;
+            var wordSequences = FindSequences(ch => char.IsLetter(ch)).OrderBy(x => x.Item1).ToArray();
+            const string vowel = "AaEeIiOoYyUu";
+            var res = wordSequences.Where(x => vowel.Contains(Input[x.Item2])).Count();
+            return res;
         }
-        // done
+
 
 
 

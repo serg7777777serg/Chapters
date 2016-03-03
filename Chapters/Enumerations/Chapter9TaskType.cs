@@ -29,7 +29,7 @@
         TwentyFive = 25,
 
         FromString = 26,
-        FromFile = 27
+        FromCharsArray = 27
     }
 
 }

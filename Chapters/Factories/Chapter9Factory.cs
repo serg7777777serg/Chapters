@@ -1,18 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Chapters
 {
     class Chapter9Factory
     {
-        public static string input = @"Hello, World!!!4,- wrote junior developer in his first program";
+        public static string input = @"Hello , World!!!3 , - wrote junior developer in his first ok program";
         public static string input2 = " ! !";
 
         public static object[] PerformTask(TaskNumber number)
         {
-            
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = @"Chapters.Embedded_resources.916-925.txt";
+            var resources = assembly.GetManifestResourceNames();
+
+            FileStream fin = new FileStream(@"916-925.txt", FileMode.Open); ;
+            //string l;
+            StringBuilder sb = new StringBuilder();
+            StreamReader fstr_in = new StreamReader(fin);
+            sb.AppendLine(fstr_in.ReadLine());
+            fstr_in.Close();
+
             switch (number)
             {
                 case TaskNumber.Task1:
@@ -27,7 +39,8 @@ namespace Chapters
 
                 case TaskNumber.Task3:
                     var A3 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromString, input);
-                    var res3 = A3.Where(x => x != ',');
+                    var temp3 = A3.Where(x => x != ',').ToArray();
+                    var res3 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromCharsArray, temp3);
                     return new object[] { res3 };
 
                 case TaskNumber.Task4:
@@ -52,9 +65,9 @@ namespace Chapters
 
                 case TaskNumber.Task8:
                     var A8 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromString, input);
-                    var res8 = A8.Where(x=>!char.IsDigit(x));
-                    //A8.RemoveNumbers();
-                    return new object[] { A8 };
+                    var temp8 = A8.Where(x=>!char.IsDigit(x)).ToArray();
+                    var res8 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromCharsArray, temp8);
+                    return new object[] { res8 };
 
                 case TaskNumber.Task9:
                     var A9 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromString, input);
@@ -63,12 +76,12 @@ namespace Chapters
 
                 case TaskNumber.Task10:
                     var A10 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromString, input);
-                    var res10 = A10.ExtracthWords();
-                    return new object[] { /*input.Where(x => x != res10.Max())*/ null };
+                    A10.DeleteMaxLengthWords();
+                    return new object[] { A10 };
 
                 case TaskNumber.Task11:
                     var A11 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromString, input);
-                    var res11 = A11.ExtractNumbers().Where(x => BinaryFile.IsSimple(x));
+                    var res11 = A11.ExtractNumbers().Where(x => BinaryFile.IsSimple(x)).Count();
                     return new object[] { res11 };
 
                 case TaskNumber.Task12:
@@ -83,17 +96,20 @@ namespace Chapters
                     
                 case TaskNumber.Task14:
                     var A14 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromString, input);
-
-                    return new object[] { };
+                    var res14 = A14.MinWordCount();
+                    return new object[] { res14 };
 
                 case TaskNumber.Task15:
-
-                    return new object[] { };
+                    var A15 = Chapters.Common.StringAlgorithms.Create(Chapter9TaskType.FromString, input);
+                    var res15 = A15.VowelEndLetterCount();
+                    return new object[] { res15 };
                     
                 case TaskNumber.Task16:
+                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    {
 
-                    return new object[] { };
-
+                        return new object[] { };
+                    }
                 case TaskNumber.Task17:
 
                     return new object[] { };
