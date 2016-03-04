@@ -1,3 +1,4 @@
+using Chapters.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Chapters.Common
+namespace Chapters
 {
-    public class StringAlgorithms : IEnumerable<char>//, IEnumerable<string>
+    public class StringAlgorithms : IEnumerable<char>
     {
 
         private string Input { get; set; }
@@ -30,20 +31,7 @@ namespace Chapters.Common
                 Input += i;
         }
 
-        //private StringAlgorithms(Stream _source)
-        //{
-        //    source = new byte[_source.Length];
-        //    _source.Read(source, 0, source.Length);
-
-        //    FileStream fin;
-        //    string l;
-        //    fin = new FileStream("D:/1.txt", FileMode.Open);
-        //    StreamReader fstr_in = new StreamReader(fin);
-        //    l = fstr_in.ReadLine();
-        //    Console.Write(l);
-        //    fstr_in.Close();
-
-        //}
+       
 
         #region Interface implementations
 
@@ -54,10 +42,16 @@ namespace Chapters.Common
                 yield return d;
         }
 
-        //IEnumerator<string> IEnumerable<string>.GetEnumerator()
+        public IEnumerable<string> GetLinesEnumerator()
+        {
+            foreach (var d in Inputs)
+                yield return d;
+        }
+
+        //IEnumerator<string[]> IEnumerable<string[]>.GetEnumerator()
         //{
-        //    foreach (var d in Input)
-        //        yield return d.ToString();
+        //    foreach (var d in Inputs)
+        //        yield return new string[] { d };
         //}
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -76,7 +70,6 @@ namespace Chapters.Common
         private IEnumerable<Tuple<int, int>> FindSequences(Predicate<char> isThisBelongsToSequence)
         {
             var result = new List<Tuple<int, int>>();
-
             for (var i = 0; i < Input.Length; ++i)
             {
                 if (isThisBelongsToSequence(Input[i]))
@@ -104,21 +97,70 @@ namespace Chapters.Common
                     return new StringAlgorithms(param as string);
                 case Chapter9TaskType.FromCharsArray:
                     return new StringAlgorithms(param as char[]);
-
-                //case Chapter9TaskType.FromFile:
-                //    return new StringAlgorithms(param as Stream);
+                case Chapter9TaskType.FromFile:
+                    return new StringAlgorithms(param as string, true);
 
                 default:
                     throw new ArgumentOutOfRangeException(type.GetType().Name, type, null);
             }
         }
 
-        public static bool IsPalindrome(string s)
+        
+
+        private IEnumerable<string> MultilineExecutionContextStart()
         {
-            for (int i = 1, j = s.Length - 1; i < j; i++, j--)
-                if (char.ToLower(s[i]) != char.ToLower(s[j]))
-                    return false;
-            return true;
+            var inputBackup = Input;
+            foreach (var line in Inputs)
+            {
+                Input = line;
+                yield return line;
+            }
+            Input = inputBackup;
+        }
+
+        public int CountWordsInAOddLines()
+        {
+            return MultilineExecutionContextStart().Where((x, i) => i % 2 == 1).Select(x => ExtractWords().Count()).Sum();
+        }
+
+        // CountPunctuationsInTheEvenStrings
+        public int CountPunctuationsInTheEvenLines()
+        {
+            return MultilineExecutionContextStart().Where((x, i) => i % 2 == 0).SelectMany(x => FindSequences(ch => char.IsPunctuation(ch))).Sum(x=>x.Item2-x.Item1+1);
+        }
+
+
+        public int CountSimplesInTheText()
+        {
+            return MultilineExecutionContextStart().SelectMany(x => ExtractNumbers().Select(y=>Convert.ToInt32(y)).Where(y=>y.IsSimple(z=>z))).Count();
+        }
+
+        public int CountSentencesInTheText()
+        {
+            return MultilineExecutionContextStart().Select(y => FindSequences(x => !(x == '.' || x == '?' || x == '!')).Count()).Sum();
+        }
+
+        public string[] ExtractWords()
+        {
+            var wordSequences = FindSequences(ch => char.IsLetter(ch)).OrderBy(x => x.Item1).ToList();
+            //var sb = new StringBuilder();
+            string[] input = new string[wordSequences.Count];
+            // Here we extracted word sequences, next we need to reverse
+            for (int i = 0, currentSequence = 0; i < Input.Length; ++i)
+            {
+                if (i == wordSequences[currentSequence].Item1)
+                {
+                    var word = Input.Substring(i, wordSequences[currentSequence].Item2 - i + 1);
+                    input[currentSequence] = word;
+                    //sb.Append(word);
+                    i = wordSequences[currentSequence].Item2;
+                    ++currentSequence;
+                }
+                // fix
+                if (currentSequence >= wordSequences.Count)
+                    break;
+            }
+            return input;
         }
 
         //4
@@ -261,8 +303,9 @@ namespace Chapters.Common
             return res;
         }
 
-
-
-
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

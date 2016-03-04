@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chapters.Common;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -54,8 +55,8 @@ namespace Chapters
                     
                     {
                         var A4 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var A4PosSimple = A4.Where(x => x > 0 && BinaryFile.IsSimple(x)).Count();
-                        var A4NegSimple = A4.Where(x => x < 0 && BinaryFile.IsSimple(x)).Count();
+                        var A4PosSimple = A4.Where(x => x > 0 && x.IsSimple(y=>y)).Count();
+                        var A4NegSimple = A4.Where(x => x < 0 && x.IsSimple(y=>y)).Count();
                         var A4ZeroCount = A4.Where(x => x == 0).Count();
                         return new object[] { A4PosSimple, A4NegSimple, A4ZeroCount };
                     }
@@ -66,7 +67,7 @@ namespace Chapters
                         var A5 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         byte min = A5.Min();
                         var minIndex = A5.FindIndex(x => x==min);
-                        var A5NotSimpleBeforeMin = A5.Where((x, i) => !BinaryFile.IsSimple(x) && i < minIndex).Count();
+                        var A5NotSimpleBeforeMin = A5.Where((x, i) => !x.IsSimple(y=>y) && i < minIndex).Count();
                         return new object[] { A5NotSimpleBeforeMin };
                     }
 
@@ -133,7 +134,7 @@ namespace Chapters
                     {
                         var A11 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var Negative = A11.Where(x => x < 0);
-                        var temp11 = A11.Where(x => BinaryFile.IsSimple(x));
+                        var temp11 = A11.Where(x => x.IsSimple(y=>y));
                         if (!Negative.Any() || !temp11.Any())
                             return new object[] { 0,0,0,0,0,0 };
                         var maxNegative = Negative.Max();
@@ -155,7 +156,7 @@ namespace Chapters
                     {
                         var A12 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var avg = Math.Ceiling(A12.Average(x => x));
-                        var res12 = A12.Where(x => BinaryFile.IsSimple(x) == true && x > avg).ToArray();
+                        var res12 = A12.Where(x => x.IsSimple(y=>y) && x > avg).ToArray();
                         BinaryFile.Create(Chapter8TaskType.FromArray, res12).WriteData(12);
                         return new object[] { res12.Count()};
                     }
@@ -176,7 +177,7 @@ namespace Chapters
                             if (x == min)
                                 wasMin = true;
 
-                            return isSequenceStart && BinaryFile.IsSimple(x);
+                            return isSequenceStart && x.IsSimple(y=>y);
                         }).Aggregate(new Point(0, 0), (x, y) => {
 
                             x.X += 1;
@@ -191,7 +192,7 @@ namespace Chapters
                     
                     {
                         var A14 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var firstPerfectIndex = A14.FindIndex(x => BinaryFile.IsPerfect(x));
+                        var firstPerfectIndex = A14.FindIndex(x => x.IsPerfect(y=>y));
                         var lastNegativeIndex = A14.FindLastIndex(x => x<0);
                         if (firstPerfectIndex == -1 || lastNegativeIndex == -1)
                             return new object[] { 0,0,0,0,0,0};
@@ -210,7 +211,7 @@ namespace Chapters
                     
                     {
                         var A15 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var res15 = A15.Where(x => BinaryFile.IsSimple(x)).OrderByDescending(x=>x);
+                        var res15 = A15.Where(x => x.IsSimple(y=>y)).OrderByDescending(x=>x);
                         return new object[] { res15.Count() };
                     }
 
@@ -236,8 +237,8 @@ namespace Chapters
                     {
                         var A18 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var differentValues = A18.Distinct();
-                        var res18 = differentValues.Where(x=>BinaryFile.IsSimple(x)).ToArray();
-                        var res181 = differentValues.Where(x=>BinaryFile.IsPerfect(x)).ToArray();
+                        var res18 = differentValues.Where(x=>x.IsSimple(y=>y)).ToArray();
+                        var res181 = differentValues.Where(x=>x.IsPerfect(y=>y)).ToArray();
                         return new object[] { A18.Count(x => res18.Contains(x)), res18.Max(), A18.Count(x=> res181.Contains(x)), res181.Min() };
                     }
 
@@ -247,7 +248,7 @@ namespace Chapters
                         var A19 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var max = A19.Max();
                         var index = A19.FindIndex(x => x == max);
-                        var res19 = A19.Where((x, i) => i> index && BinaryFile.IsSimple(x));
+                        var res19 = A19.Where((x, i) => i> index && x.IsSimple(y=>y));
 
                         return new object[] { res19.Count() };
                     }
@@ -284,8 +285,8 @@ namespace Chapters
                     {
                         var A22 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
                         var differentValues = A22.Distinct();
-                        var differentSimples = differentValues.Where(x => BinaryFile.IsSimple(x));
-                        var differentPerfects = differentValues.Where(x => BinaryFile.IsPerfect(x));
+                        var differentSimples = differentValues.Where(x => x.IsSimple(y=>y));
+                        var differentPerfects = differentValues.Where(x => x.IsPerfect(y=>y));
 
                         var index = A22.FindLastIndex(x => differentSimples.Contains(x));
                         
@@ -325,7 +326,7 @@ namespace Chapters
                     
                     {
                         var A25 = BinaryFile.Create(Chapter8TaskType.FromStream, stream);
-                        var res25 = A25.Where(x=>BinaryFile.IsSimple(x)).Aggregate(0, (x, y) => x+=y);
+                        var res25 = A25.Where(x=>x.IsSimple(z=>z)).Aggregate(0, (x, y) => x+=y);
 
                         return new object[] { res25 - A25.Max() };
                     }

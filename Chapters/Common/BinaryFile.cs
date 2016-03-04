@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
+using Chapters.Common;
 
 namespace Chapters
 {
@@ -122,18 +123,6 @@ namespace Chapters
 
         #region Public methods
 
-        public static bool IsSimple(int p)
-        {
-            if (p <= 1)
-                return false;
-
-            for (var i = 2; i <= Math.Ceiling(Math.Sqrt(p)); i++)
-                if (p % i == 0)
-                    return false;
-
-            return true;
-        }
-
         public void Swap(int first, int second)
         {
             var temp = this[first];
@@ -173,22 +162,7 @@ namespace Chapters
             }
         }
 
-        public static bool IsPerfect(int p)
-        {
-            if (p <= 1)
-                return false;
-
-            var sum = 0;
-            for (var i = 1; i < p; i++)
-                if (p%i == 0)
-                    sum += i;
-
-            if (sum == p)
-                return true;
-
-            return false;
-
-        }
+        
         #endregion
 
         public byte[] FindLastPerfectSequence()
@@ -200,7 +174,7 @@ namespace Chapters
             var res = new byte[Length];
             for (var i = Length - 1; i >= 0; i--)
             {
-                if (IsPerfect(source[i]))
+                if (source[i].IsPerfect(x=>x))
                     if (!flag)
                     {
                         index = i;
@@ -256,7 +230,7 @@ namespace Chapters
             var res = new byte[Length];
             for (var i = 0; i < Length; i++)
             {
-                if (IsPerfect(source[i]))
+                if (source[i].IsPerfect(x=>x))
                     if (!flag)
                     {
                         index = i;

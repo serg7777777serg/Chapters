@@ -1390,6 +1390,84 @@ namespace Chapters
             #endregion
 
 
+            #region 16
+
+            var task916 = Tuple.Create(TaskNumber.Task16, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0}: Words count in odd strings - ?", TaskNumber.Task16);
+                var res916 = Chapter9Factory.PerformTask(TaskNumber.Task16);
+                sb.AppendFormat("\nResult - {0}", res916[0]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+
+                return sb.ToString();
+            }));
+
+            #endregion
+
+            #region 17
+
+            var task917 = Tuple.Create(TaskNumber.Task17, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0}: Simple numbers count in the strings - ?", TaskNumber.Task17);
+                var res917 = Chapter9Factory.PerformTask(TaskNumber.Task17);
+                sb.AppendFormat("\nResult - {0}", res917[0]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+
+                return sb.ToString();
+            }));
+
+            #endregion
+
+            #region 18
+
+            var task918 = Tuple.Create(TaskNumber.Task18, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0}: Punctuations count in the even strings - ?", TaskNumber.Task18);
+                var res918 = Chapter9Factory.PerformTask(TaskNumber.Task18);
+                sb.AppendFormat("\nResult - {0}", res918[0]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+
+                return sb.ToString();
+            }));
+
+            #endregion
+
+            #region 19
+
+            var task919 = Tuple.Create(TaskNumber.Task19, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0}: Sentences count in all strings - ?", TaskNumber.Task19);
+                var res919 = Chapter9Factory.PerformTask(TaskNumber.Task19);
+                sb.AppendFormat("\nResult - {0}", res919[0]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+
+                return sb.ToString();
+            }));
+
+            #endregion
+
+
+
 
             #endregion
 
@@ -1398,9 +1476,8 @@ namespace Chapters
                 
                 task701, task702, task703, task704, task705, task706, task707, task708, task709, task710, task711, task712, task713, task714, task715, task716, task717, task718, task719, task720, task721, task722, task723, task724, task725,
                 task801, task802, task803, task804, task805, task806, task807, task808, task809, task810, task811, task812, task813, task814, task815, task816, task817, task818, task819, task820, task821, task822, task823, task824, task825,
-                task901, task902, task903, task904, task905, task906, task907, task908, task909, task910, task911, task912, task913, task914, task915
-                
-                
+                task901, task902, task903, task904, task905, task906, task907, task908, task909, task910, task911, task912, task913, task914, task915, task916, task917, task918, task919
+
             }.ToList();
 
             var bag = new List<string>(tasks.Count);
