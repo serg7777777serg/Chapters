@@ -48,12 +48,7 @@ namespace Chapters
                 yield return d;
         }
 
-        //IEnumerator<string[]> IEnumerable<string[]>.GetEnumerator()
-        //{
-        //    foreach (var d in Inputs)
-        //        yield return new string[] { d };
-        //}
-
+        
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
@@ -89,15 +84,15 @@ namespace Chapters
             return result;
         }
 
-        public static StringAlgorithms Create(Chapter9TaskType type, object param = null)
+        public static StringAlgorithms Create(Chapter9_1TaskType type, object param = null)
         {
             switch (type)
             {
-                case Chapter9TaskType.FromString:
+                case Chapter9_1TaskType.FromString:
                     return new StringAlgorithms(param as string);
-                case Chapter9TaskType.FromCharsArray:
+                case Chapter9_1TaskType.FromCharsArray:
                     return new StringAlgorithms(param as char[]);
-                case Chapter9TaskType.FromFile:
+                case Chapter9_1TaskType.FromFile:
                     return new StringAlgorithms(param as string, true);
 
                 default:
@@ -110,12 +105,32 @@ namespace Chapters
         private IEnumerable<string> MultilineExecutionContextStart()
         {
             var inputBackup = Input;
-            foreach (var line in Inputs)
+            for(var i=0; i < Inputs.Length; i++)
             {
-                Input = line;
-                yield return line;
+                Input = Inputs[i];
+                yield return Inputs[i];
+                Inputs[i] = Input;
             }
             Input = inputBackup;
+        }
+
+        private void RemovePalindroms()
+        {
+            ExtractNumbers().Where(x => {
+                var res = x > 10 && x.IsPalindrome();
+                if (res)
+                    Input = Input.Replace(Convert.ToString(x), string.Empty);
+                return res;
+            }).ToArray();
+        }
+
+        public string RemovePalindromsNumbersIn3And7Lines()
+        {
+            return string.Join(Environment.NewLine, MultilineExecutionContextStart().Where((x, i) => i == 2 || i == 6).Select(x =>
+             {
+                 RemovePalindroms();
+                 return Input;
+             }).ToArray());
         }
 
         public int CountWordsInAOddLines()
@@ -123,7 +138,7 @@ namespace Chapters
             return MultilineExecutionContextStart().Where((x, i) => i % 2 == 1).Select(x => ExtractWords().Count()).Sum();
         }
 
-        // CountPunctuationsInTheEvenStrings
+        
         public int CountPunctuationsInTheEvenLines()
         {
             return MultilineExecutionContextStart().Where((x, i) => i % 2 == 0).SelectMany(x => FindSequences(ch => char.IsPunctuation(ch))).Sum(x=>x.Item2-x.Item1+1);
@@ -137,8 +152,32 @@ namespace Chapters
 
         public int CountSentencesInTheText()
         {
-            return MultilineExecutionContextStart().Select(y => FindSequences(x => !(x == '.' || x == '?' || x == '!')).Count()).Sum();
+            return MultilineExecutionContextStart().Select(y => FindSequences(x => !(x == '.' || x == '?' || x == '!')).Count()).Max();
         }
+
+        
+        public int CountPalindromeWordsInTheText()
+        {
+            return MultilineExecutionContextStart().Select(x => ExtractWords().Where(y => y.Length > 1 && y.IsPalindrome()).Count()).Sum();
+        }
+
+        public string FindLongestSentence()
+        {
+            return MultilineExecutionContextStart().SelectMany(x => ExtractSentences()).OrderByDescending(x=>x.Length).FirstOrDefault();
+        }
+
+        public string FindFirstAndLastSentences()
+        {
+            var sentences = MultilineExecutionContextStart().SelectMany(x => ExtractSentences());
+            return string.Join(Environment.NewLine, sentences.Where((x, i) => i == 0 || i == sentences.Count() - 1).ToArray());
+        }
+
+        public string ReverseSentences()
+        {
+            var sentences = MultilineExecutionContextStart().SelectMany(x => ExtractSentences());
+            return string.Join(Environment.NewLine, sentences.Reverse().ToArray());
+        }
+
 
         public string[] ExtractWords()
         {
@@ -161,6 +200,62 @@ namespace Chapters
                     break;
             }
             return input;
+        }
+
+        public string[] ExtractSentences()
+        {
+            var sentenceSequences = FindSequences(ch => ch == '.' || ch == '!' || ch == '?').OrderBy(x => x.Item1).ToList();
+            //var sb = new StringBuilder();
+            string[] input = new string[sentenceSequences.Count];
+            // Here we extracted word sequences, next we need to reverse
+            for (int i = 0, currentSequence = 0; i < Input.Length; ++i)
+            {
+                if (i == sentenceSequences[currentSequence].Item1)
+                {
+                        string sentence;
+                    int length = 0;
+                    if (currentSequence == 0)
+                        sentence = Input.Substring(0, sentenceSequences[currentSequence].Item2+1);
+                    else
+                    {
+                        length = sentenceSequences[currentSequence].Item2 - sentenceSequences[currentSequence-1].Item2;
+                        sentence = Input.Substring(i-length+1, length);
+                    }
+                     input[currentSequence] = sentence;
+                    //sb.Append(word);
+                    i = sentenceSequences[currentSequence].Item2;
+                    ++currentSequence;
+                }
+                // fix
+                if (currentSequence >= sentenceSequences.Count)
+                    break;
+            }
+            return input;
+        }
+
+        public Tuple<string, int> FindMaxNumbersCount()
+        {
+            return MultilineExecutionContextStart().Select(x => Tuple.Create(x, ExtractNumbers().Count)).OrderByDescending(x => x.Item2).FirstOrDefault();
+        }
+
+        //7
+        public List<int> ExtractNumbers()
+        {
+            var numberSequence = FindSequences(num => char.IsDigit(num)).ToList();
+            if (numberSequence.Count == 0)
+                return new List<int> { 0 };
+            var res = new List<int>();
+            for (int i = 0, currentSequence = 0; i < Input.Length; i++)
+            {
+                if (currentSequence < numberSequence.Count && i == numberSequence[currentSequence].Item1)
+                {
+                    var number = Convert.ToInt32(Input.Substring(i, numberSequence[currentSequence].Item2 - i + 1));
+                    res.Add(number);
+                    i = numberSequence[currentSequence].Item2;
+                    ++currentSequence;
+                }
+            }
+            return res;
         }
 
         //4
@@ -203,25 +298,7 @@ namespace Chapters
                     }        
         }
 
-        //7
-        public List<int> ExtractNumbers()
-        {
-            var numberSequence = FindSequences(num => char.IsDigit(num)).ToList();
-            if (numberSequence.Count == 0)
-                return new List<int> { 0 };
-            var res = new List<int>();
-            for (int i = 0, currentSequence = 0; i < Input.Length; i++)
-            {
-                if (currentSequence < numberSequence.Count && i == numberSequence[currentSequence].Item1)
-                {
-                    var number = Convert.ToInt32(Input.Substring(i, numberSequence[currentSequence].Item2 - i + 1));
-                    res.Add(number);
-                    i = numberSequence[currentSequence].Item2;
-                    ++currentSequence;
-                }
-            }
-            return res;
-        }
+
    
         //10
         public void DeleteMaxLengthWords()

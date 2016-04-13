@@ -40,16 +40,17 @@
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -66,12 +67,25 @@
   <ItemGroup>
     <Compile Include="Common\Algorithm.cs" />
     <Compile Include="Common\BinaryFile.cs" />
+    <Compile Include="Common\Randomization.cs" />
+    <Compile Include="Entity\Employee.cs" />
+    <Compile Include="Entity\Tea.cs" />
+    <Compile Include="Entity\Client.cs" />
+    <Compile Include="Entity\Credit.cs" />
+    <Compile Include="Entity\Graduation.cs" />
+    <Compile Include="Entity\Coal.cs" />
+    <Compile Include="Entity\Journey.cs" />
+    <Compile Include="Entity\Population.cs" />
+    <Compile Include="Entity\Illness.cs" />
+    <Compile Include="Common\Structures.cs" />
     <Compile Include="Enumerations\Chapter8TaskType.cs" />
-    <Compile Include="Enumerations\Chapter9TaskType.cs" />
+    <Compile Include="Enumerations\Chapter9_2TaskType.cs" />
+    <Compile Include="Enumerations\Chapter9_1TaskType.cs" />
     <Compile Include="Factories\Chapter7Factory.cs" />
     <Compile Include="Factories\Chapter8Factory.cs" />
     <Compile Include="Common\Matrix.cs" />
-    <Compile Include="Factories\Chapter9Factory.cs" />
+    <Compile Include="Factories\Chapter91Factory.cs" />
+    <Compile Include="Factories\Chapter92Factory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enumerations\TaskNumber.cs" />
@@ -81,6 +95,15 @@
   <ItemGroup>
     <None Include="App.config" />
     <EmbeddedResource Include="Embedded resources\UserInputFile.bin" />
+    <EmbeddedResource Include="Embedded resources\dataIllness.bin" />
+    <EmbeddedResource Include="Embedded resources\Credits.bin" />
+    <EmbeddedResource Include="Embedded resources\Graduations.bin" />
+    <EmbeddedResource Include="Embedded resources\Populations.bin" />
+    <EmbeddedResource Include="Embedded resources\CoalMining.bin" />
+    <EmbeddedResource Include="Embedded resources\Journey.bin" />
+    <EmbeddedResource Include="Embedded resources\Client.bin" />
+    <EmbeddedResource Include="Embedded resources\Employee.bin" />
+    <EmbeddedResource Include="Embedded resources\Tea.bin" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

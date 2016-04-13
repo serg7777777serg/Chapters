@@ -1,20 +1,20 @@
 This is 1st string.Hello!
-This is 2nd string1..I
-This is 3rd string.like
-This is 4th string.nokiaikon
-This is 5th string.E90
-This is 6th string.Communicator
-This is 7th string.mobile
-This is 8th string.phone
-This is 9th string.because
-This is 10th string.it's
-This is 11th string.the
-This is 12th string.12321 radar level
-This is 13th string.//civic stats
-This is 14th string.strongest
-This is 15th string.product
-This is 16th string.for
-This is 17th string.all
-This is 18th string.time
-This is 19th string.company
-This is 20th string.exists:)
+This is 2nd string1..I.
+This is 3rd string.like565.
+This is 4th string.nokiaikon.
+This is 5th st6ri7ng.E90.
+This is 6th string.Communicator.
+This is 7th string.mobile98789.
+This is 8th string.phone.555.666.
+This is 9th string.because.
+This is 10th string.it's.
+This is 11th string.the.
+This is 12th string.12321 radar level.
+This is 13th string.//civic stats.
+This is 14th string.strongest.
+This is 15th string.product.
+This is 16th string.for.
+This is 17th string.all.
+This is 18th string.time.
+This is 19th string.company.
+This is 20th string....exists!
