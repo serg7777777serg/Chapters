@@ -82,5 +82,21 @@ namespace Chapters.Common
             return new StreamReader(assembly.GetManifestResourceStream(name));
         }
 
+        public static MyDateTime ToTime(this UInt64 seconds)
+        {
+            return new MyDateTime(0,0,0, (uint)(seconds / 3600), (uint) ((seconds % 3600) / 60), (uint) ((seconds % 3600) % 60));
+        }
+
+        public static MyDateTime ToDate(this UInt64 days)
+        {
+            var temp = days % 365;
+            var months = 0;
+            if (temp == 31)
+                months = 1;
+            if (temp >= 31 && temp <= 59)
+                months = 2;
+            return new MyDateTime((uint)days/365,(uint)months,0,0,0,0);
+        }
+      
     }
 }

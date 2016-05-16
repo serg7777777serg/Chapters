@@ -19,6 +19,7 @@ namespace Chapters
         static void Main(string[] args)
         {
             Console.BufferHeight = 11000;
+
             #region Chapter 7
 
             #region 1
@@ -38,7 +39,7 @@ namespace Chapters
                 sb.AppendFormat("\n1st matrix:\n{0}\n2nd matrix:\n{1}\n3rd matrix:\n{2}\n", res701[0], res701[1], res701[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -62,7 +63,7 @@ namespace Chapters
                 sb.AppendFormat("\n1st matrix:\n{0}\n2nd matrix:\n{1}\nAnswer for equation\n{2}\n", res702[0], res702[1], res702[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -86,7 +87,7 @@ namespace Chapters
                 sb.AppendFormat("\n1st matrix:\n{0}\n2nd matrix:\n{1}\nAnswer for equation:\n{2}\n", res703[0], res703[1], res703[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -109,7 +110,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}\n", res704[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -132,7 +133,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}\n", res705[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -158,7 +159,7 @@ namespace Chapters
                 sb.AppendFormat("\nsource == source*source ? Result: {0}\n", res706[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -181,7 +182,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult:\n{0}\n", res707[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -204,7 +205,7 @@ namespace Chapters
                 sb.AppendFormat("\nEquation system solving is\n{0}\nit's vector length is {1}\n", res708[0], res708[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -227,7 +228,7 @@ namespace Chapters
                 sb.AppendFormat("\nScalar product of X and Y vectors is {0}\n", res709[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -250,7 +251,7 @@ namespace Chapters
                 sb.AppendFormat("\nSlau solution product it's transporation is\n{0}\n", res710[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -277,7 +278,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}\n", res711[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -300,7 +301,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}\n", res712[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -325,7 +326,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult:\n{0}\n", res713[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -348,7 +349,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult:\n{0}\n", res714[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -371,7 +372,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult:\n{0}\n", res715[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -394,7 +395,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}\n", res716[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -418,7 +419,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}\n", res717[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -443,7 +444,7 @@ namespace Chapters
                 sb.AppendFormat("\nSlau I X = [1 1 1]. Result:\n{0}\n", res718[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -467,7 +468,7 @@ namespace Chapters
                 sb.AppendFormat("\nA * !A == E ? Result: {0}\n", res719[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -493,7 +494,7 @@ namespace Chapters
                 sb.AppendFormat("\nSum of producted elements of two any columns is 1. For A: {0}. For B: {1}\n", res720[4], res720[5]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -515,7 +516,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult:\n{0}", res721[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -538,7 +539,7 @@ namespace Chapters
                 sb.AppendFormat("\nC*(~C)==E : {0}\n(~C)*C == E : {1}\n", res722[0], res722[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -565,7 +566,7 @@ namespace Chapters
                 sb.AppendFormat("\nDeterminant: {0}", res723[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -589,7 +590,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}\n", res724[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -615,7 +616,7 @@ namespace Chapters
                 sb.AppendFormat("\nCheck result A*X:\n{0}", res725[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -639,7 +640,7 @@ namespace Chapters
                 sb.AppendFormat("\nEven array - {0} elements, odd - {1}\nMax even element - {2}, min odd - {3}", res801[0], res801[1], res801[2], res801[3]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -659,7 +660,7 @@ namespace Chapters
                 sb.AppendFormat("\nCount of doubled odd numbers: {0}", res802[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -678,7 +679,7 @@ namespace Chapters
                 sb.AppendFormat("\nCount of doubled odd numbers: {0}", res803[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -697,7 +698,7 @@ namespace Chapters
                 sb.AppendFormat("\nPositive simple count: {0}\nNegative count: {1}\nZero simple count: {2}", res804[0], res804[1], res804[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -716,7 +717,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count): {0}", res805[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -735,7 +736,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count):{0}", res806[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -754,7 +755,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count):{0}", res807[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -773,7 +774,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count):{0}", res808[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -793,7 +794,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count):{0}", res809[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -813,7 +814,7 @@ namespace Chapters
                 sb.AppendFormat("\nMax odd index: {0}\nMin even index: {1}", res810[1], res810[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -837,7 +838,7 @@ namespace Chapters
                 sb.AppendFormat("\nMax simple value: {0}", res811[5]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -856,7 +857,7 @@ namespace Chapters
                  sb.AppendFormat("\nResult (count): {0}", res812[0]);
 
                  stopWatch1.Stop();
-                 sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                 sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                  return sb.ToString();
              }));
@@ -875,7 +876,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult: {0}", res813[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -899,7 +900,7 @@ namespace Chapters
                 sb.AppendFormat("\nLast negative value: {0}", res814[5]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -918,7 +919,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count): {0}", res815[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -936,7 +937,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count): {0}", res816[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -953,7 +954,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count): {0}", res817[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -972,7 +973,7 @@ namespace Chapters
                 sb.AppendFormat("\nPerfect (count): {0}, min: {1}", res818[2], res818[3]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -991,7 +992,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count): {0}", res819[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1012,7 +1013,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count): {0}", res820[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1031,7 +1032,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (count): {0}", res821[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1053,7 +1054,7 @@ namespace Chapters
                 sb.AppendFormat("\nLast simple: {0}, min perfect: {1}", res822[2], res822[3]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1072,7 +1073,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (sum): {0}", res823[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1091,7 +1092,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (production): {0}", res824[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1109,7 +1110,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult (substraction): {0}", res825[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1132,10 +1133,10 @@ namespace Chapters
 
                 sb.AppendFormat("\n{0}: Punctuation count - ?", TaskNumber.Task1);
                 var res901 = Chapter91Factory.PerformTask(TaskNumber.Task1);
-                sb.AppendFormat("\nResult - {0}", res901[0]);
+                sb.AppendFormat("\nResult - {0}\n", res901[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1149,10 +1150,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Point (.) and exclamation point (!) count - ?", TaskNumber.Task2);
                 var res902 = Chapter91Factory.PerformTask(TaskNumber.Task2);
-                sb.AppendFormat("\nResult - {0}", res902[0]);
+                sb.AppendFormat("\nResult - {0}\n", res902[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1166,10 +1167,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Delete all commas - ?", TaskNumber.Task3);
                 var res901 = Chapter91Factory.PerformTask(TaskNumber.Task3);
-                sb.AppendFormat("\nResult - {0}", res901[0]);
+                sb.AppendFormat("\nResult - {0}\n", res901[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1183,10 +1184,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Delete all spaces before punctuation - ?", TaskNumber.Task4);
                 var res904 = Chapter91Factory.PerformTask(TaskNumber.Task4);
-                sb.AppendFormat("\nResult - {0}", res904[0]);
+                sb.AppendFormat("\nResult - {0}\n", res904[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1200,10 +1201,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Insert number after each space - ?", TaskNumber.Task5);
                 var res905 = Chapter91Factory.PerformTask(TaskNumber.Task5);
-                sb.AppendFormat("\nResult - {0}", res905[0]);
+                sb.AppendFormat("\nResult - {0}\n", res905[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1217,10 +1218,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Insert number before each exclamation point (!) - ?", TaskNumber.Task6);
                 var res906 = Chapter91Factory.PerformTask(TaskNumber.Task6);
-                sb.AppendFormat("\nResult - {0}", res906[0]);
+                sb.AppendFormat("\nResult - {0}\n", res906[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1234,10 +1235,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Find sum of numbers in string - ?", TaskNumber.Task7);
                 var res907 = Chapter91Factory.PerformTask(TaskNumber.Task7);
-                sb.AppendFormat("\nResult - {0}", res907[0]);
+                sb.AppendFormat("\nResult - {0}\n", res907[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1252,10 +1253,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Remove all numbers from string - ?", TaskNumber.Task8);
                 var res908 = Chapter91Factory.PerformTask(TaskNumber.Task8);
-                sb.AppendFormat("\nResult - {0}", res908[0]);
+                sb.AppendFormat("\nResult - {0}\n", res908[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1270,10 +1271,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Find sum of simple numbers in string - ?", TaskNumber.Task9);
                 var res909 = Chapter91Factory.PerformTask(TaskNumber.Task9);
-                sb.AppendFormat("\nResult - {0}", res909[0]);
+                sb.AppendFormat("\nResult - {0}\n", res909[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1288,10 +1289,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Remove a word with max length - ?", TaskNumber.Task10);
                 var res910 = Chapter91Factory.PerformTask(TaskNumber.Task10);
-                sb.AppendFormat("\nResult - {0}", res910[0]);
+                sb.AppendFormat("\nResult - {0}\n", res910[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1306,10 +1307,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Wheter simple numbers are present - ?", TaskNumber.Task11);
                 var res911 = Chapter91Factory.PerformTask(TaskNumber.Task11);
-                sb.AppendFormat("\nResult - {0}", res911[0]);
+                sb.AppendFormat("\nResult - {0}\n", res911[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1325,10 +1326,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Insert space after punctuations - ?", TaskNumber.Task12);
                 var res912 = Chapter91Factory.PerformTask(TaskNumber.Task12);
-                sb.AppendFormat("\nResult - {0}", res912[0]);
+                sb.AppendFormat("\nResult - {0}\n", res912[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1344,10 +1345,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Invert words in string - ?", TaskNumber.Task13);
                 var res913 = Chapter91Factory.PerformTask(TaskNumber.Task13);
-                sb.AppendFormat("\nResult - {0}", res913[0]);
+                sb.AppendFormat("\nResult - {0}\n", res913[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1363,10 +1364,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Smallest words count - ?", TaskNumber.Task14);
                 var res914 = Chapter91Factory.PerformTask(TaskNumber.Task14);
-                sb.AppendFormat("\nResult - {0}", res914[0]);
+                sb.AppendFormat("\nResult - {0}\n", res914[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1382,10 +1383,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Words that end with a vowel letter count - ?", TaskNumber.Task15);
                 var res915 = Chapter91Factory.PerformTask(TaskNumber.Task15);
-                sb.AppendFormat("\nResult - {0}", res915[0]);
+                sb.AppendFormat("\nResult - {0}\n", res915[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1401,10 +1402,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Words count in odd strings - ?", TaskNumber.Task16);
                 var res916 = Chapter91Factory.PerformTask(TaskNumber.Task16);
-                sb.AppendFormat("\nResult - {0}", res916[0]);
+                sb.AppendFormat("\nResult - {0}\n", res916[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1420,10 +1421,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Simple numbers count in the strings - ?", TaskNumber.Task17);
                 var res917 = Chapter91Factory.PerformTask(TaskNumber.Task17);
-                sb.AppendFormat("\nResult - {0}", res917[0]);
+                sb.AppendFormat("\nResult - {0}\n", res917[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1439,10 +1440,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Punctuations count in the even strings - ?", TaskNumber.Task18);
                 var res918 = Chapter91Factory.PerformTask(TaskNumber.Task18);
-                sb.AppendFormat("\nResult - {0}", res918[0]);
+                sb.AppendFormat("\nResult - {0}\n", res918[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1458,10 +1459,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Sentences count in all strings - ?", TaskNumber.Task19);
                 var res919 = Chapter91Factory.PerformTask(TaskNumber.Task19);
-                sb.AppendFormat("\nResult - {0}", res919[0]);
+                sb.AppendFormat("\nResult - {0}\n", res919[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1477,10 +1478,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Palindrom-words count in all strings - ?", TaskNumber.Task20);
                 var res920 = Chapter91Factory.PerformTask(TaskNumber.Task20);
-                sb.AppendFormat("\nResult - {0}", res920[0]);
+                sb.AppendFormat("\nResult - {0}\n", res920[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1496,10 +1497,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Delete Palindrom-numbers in 3rd and 7th strings - ?", TaskNumber.Task21);
                 var res921 = Chapter91Factory.PerformTask(TaskNumber.Task21);
-                sb.AppendFormat("\nResult - {0}", res921[0]);
+                sb.AppendFormat("\nResult - {0}\n", res921[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1515,10 +1516,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Display longest sentence - ?", TaskNumber.Task22);
                 var res922 = Chapter91Factory.PerformTask(TaskNumber.Task22);
-                sb.AppendFormat("\nResult - {0}", res922[0]);
+                sb.AppendFormat("\nResult - {0}\n", res922[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1534,10 +1535,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Display 1st and last sentences - ?", TaskNumber.Task23);
                 var res923 = Chapter91Factory.PerformTask(TaskNumber.Task23);
-                sb.AppendFormat("\nResult:\n{0}", res923[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res923[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1553,10 +1554,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Display all sentence in a reverse order - ?", TaskNumber.Task24);
                 var res924 = Chapter91Factory.PerformTask(TaskNumber.Task24);
-                sb.AppendFormat("\nResult:\n{0}", res924[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res924[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1573,10 +1574,10 @@ namespace Chapters
                 sb.AppendFormat("\n{0}: String contains the highest amount of numbers - ?", TaskNumber.Task25);
                 var res925 = Chapter91Factory.PerformTask(TaskNumber.Task25);
                 var data = (Tuple<string, int>)res925[0];
-                sb.AppendFormat("\nResult - {0}", data.Item1);
+                sb.AppendFormat("\nResult - {0}\n", data.Item1);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1598,10 +1599,10 @@ namespace Chapters
                
                 sb.AppendFormat("\n{0}: Average illness - ? Order info by ascending - ?", TaskNumber.Task1);
                 var res901 = Chapter92Factory.PerformTask(TaskNumber.Task1);
-                sb.AppendFormat("\nResult:\n{0}", res901[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res901[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1615,10 +1616,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Minimal illness - ? Order info by ascending - ?", TaskNumber.Task2);
                 var res902 = Chapter92Factory.PerformTask(TaskNumber.Task2);
-                sb.AppendFormat("\nResult:\n{0}", res902[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res902[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1632,10 +1633,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Average population growing - ? Order info by alphabet ascending - ?", TaskNumber.Task3);
                 var res903 = Chapter92Factory.PerformTask(TaskNumber.Task3);
-                sb.AppendFormat("\nResult:\n{0}", res903[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res903[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1649,10 +1650,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Average population growing - ? Order population by descending - ?", TaskNumber.Task4);
                 var res904 = Chapter92Factory.PerformTask(TaskNumber.Task4);
-                sb.AppendFormat("\nResult:\n{0}", res904[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res904[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1666,10 +1667,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Average graduation - ? Delete students info with average score less than 3.5 - ?", TaskNumber.Task5);
                 var res905 = Chapter92Factory.PerformTask(TaskNumber.Task5);
-                sb.AppendFormat("\nResult:\n{0}", res905[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res905[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1683,10 +1684,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Order last names in alphabet order - ?", TaskNumber.Task6);
                 var res906 = Chapter92Factory.PerformTask(TaskNumber.Task6);
-                sb.AppendFormat("\nResult:\n{0}", res906[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res906[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1700,10 +1701,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Order banks names in alphabet order with credit counts - ?", TaskNumber.Task7);
                 var res907 = Chapter92Factory.PerformTask(TaskNumber.Task7);
-                sb.AppendFormat("\nResult:\n{0}", res907[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res907[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1717,10 +1718,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Order banks names in alphabet order with credit counts > 1000 - ?", TaskNumber.Task8);
                 var res908 = Chapter92Factory.PerformTask(TaskNumber.Task8);
-                sb.AppendFormat("\nResult:\n{0}", res908[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res908[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1734,10 +1735,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Max journeys count - ?", TaskNumber.Task9);
                 var res909 = Chapter92Factory.PerformTask(TaskNumber.Task9);
-                sb.AppendFormat("\nResult:\n{0}", res909[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res909[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1751,10 +1752,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Average journeys count - ?", TaskNumber.Task10);
                 var res910 = Chapter92Factory.PerformTask(TaskNumber.Task10);
-                sb.AppendFormat("\nResult:\n{0}", res910[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res910[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1768,10 +1769,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Total - ? Count of incomings - ? Count of consumptions - ?", TaskNumber.Task11);
                 var res911 = Chapter92Factory.PerformTask(TaskNumber.Task11)[0] as Tuple<List<Client>, double, int, int>;
-                sb.AppendFormat("\nResult:\nTotal: {0}\nIncomings: {1}\nConsumptions: {2}", res911.Item2, res911.Item3, res911.Item4);
+                sb.AppendFormat("\nResult:\nTotal: {0}\nIncomings: {1}\nConsumptions: {2}\n", res911.Item2, res911.Item3, res911.Item4);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1785,10 +1786,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Three first max mining - ?", TaskNumber.Task12);
                 var res912 = Chapter92Factory.PerformTask(TaskNumber.Task12);
-                sb.AppendFormat("\nResult:\n{0}", res912[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res912[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1802,10 +1803,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Total mining sum - ?", TaskNumber.Task13);
                 var res913 = Chapter92Factory.PerformTask(TaskNumber.Task13);
-                sb.AppendFormat("\nResult:\n{0}", res913[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res913[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1819,10 +1820,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Employees: dirty money - ?", TaskNumber.Task14);
                 var res914 = Chapter92Factory.PerformTask(TaskNumber.Task14);
-                sb.AppendFormat("\nResult:\n{0}", res914[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res914[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1836,10 +1837,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Employees: Count of pensioners, young professionals - ?", TaskNumber.Task15);
                 var res915 = Chapter92Factory.PerformTask(TaskNumber.Task15);
-                sb.AppendFormat("\nResult:\nSorted data:\n{0}\nCount: {1}", res915[0], res915[1]);
+                sb.AppendFormat("\nResult:\nSorted data:\n{0}\nCount: {1}\n", res915[0], res915[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1853,10 +1854,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Employees: count of pensioners men and women - ?", TaskNumber.Task16);
                 var res916 = Chapter92Factory.PerformTask(TaskNumber.Task16);
-                sb.AppendFormat("\nResult:\n{0}", res916[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res916[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1870,10 +1871,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Employees: count engineers-pensioners - ?", TaskNumber.Task17);
                 var res917 = Chapter92Factory.PerformTask(TaskNumber.Task17);
-                sb.AppendFormat("\nResult:\n{0}", res917[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res917[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1887,10 +1888,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Scientists: young count with Ph.D degree - ? Below age 40 without Ph.D degree - ?", TaskNumber.Task18);
                 var res918 = Chapter92Factory.PerformTask(TaskNumber.Task18);
-                sb.AppendFormat("\nResult:\nCount: {0}\nBelow age 40 without Ph.D degree:\n{1}", res918[0], res918[1]);
+                sb.AppendFormat("\nResult:\nCount: {0}\nBelow age 40 without Ph.D degree:\n{1}\n", res918[0], res918[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1907,7 +1908,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult:\nIncome Tax and To Pay Off:\n{0}\nCount with minimal salary: {1}\nSort data by position:\n{2}\n", res919[0], res919[1], res919[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1921,10 +1922,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Employees: To payoff - ? Count with max salary - ? Sort data by last name - ?", TaskNumber.Task20);
                 var res920 = Chapter92Factory.PerformTask(TaskNumber.Task20);
-                sb.AppendFormat("\nResult:\nTo payoff:\n{0}\nCount with max salary: {1},\nSort by last name:\n{2}", res920[0], res920[1], res920[2]);
+                sb.AppendFormat("\nResult:\nTo payoff:\n{0}\nCount with max salary: {1},\nSort by last name:\n{2}\n", res920[0], res920[1], res920[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1941,7 +1942,7 @@ namespace Chapters
                 sb.AppendFormat("\nResult:\nTotal count: {0}\nTotal sum: {1}\nOrdered by descending of sum:\n{2}\n", res921[0], res921[1], res921[2]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1955,10 +1956,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Tea: Order by type (sort) - ?", TaskNumber.Task22);
                 var res922 = Chapter92Factory.PerformTask(TaskNumber.Task22);
-                sb.AppendFormat("\nResult:\n{0}", res922[0]);
+                sb.AppendFormat("\nResult:\n{0}\n", res922[0]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1972,10 +1973,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Tea: Sort by manufacturer name - ? Display manufacturer name with max sales - ?", TaskNumber.Task23);
                 var res923 = Chapter92Factory.PerformTask(TaskNumber.Task23);
-                sb.AppendFormat("\nResult:\nSorted:\n{0}\nMax sales:\n{1}", res923[0], res923[1]);
+                sb.AppendFormat("\nResult:\nSorted:\n{0}\nMax sales:\n{1}\n", res923[0], res923[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -1989,10 +1990,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Tea: Order by type and wrapper - ? Display wrapper with max sales sum - ?", TaskNumber.Task24);
                 var res924 = Chapter92Factory.PerformTask(TaskNumber.Task24);
-                sb.AppendFormat("\nResult:\nOredered by type and wrapping:\n{0}\nWrapper with max sales sum: {1}", res924[0], res924[1]);
+                sb.AppendFormat("\nResult:\nOredered by type and wrapping:\n{0}\nWrapper with max sales sum: {1}\n", res924[0], res924[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -2006,10 +2007,10 @@ namespace Chapters
                 var sb = new StringBuilder();
                 sb.AppendFormat("\n{0}: Tea: Order by saled tea count - ? Calculate total sum - ?", TaskNumber.Task25);
                 var res925 = Chapter92Factory.PerformTask(TaskNumber.Task25);
-                sb.AppendFormat("\nResult:\nOrdered:\n{0}\nTotal sum: {1}", res925[0], res925[1]);
+                sb.AppendFormat("\nResult:\nOrdered:\n{0}\nTotal sum: {1}\n", res925[0], res925[1]);
 
                 stopWatch1.Stop();
-                sb.AppendFormat("\n" + stopWatch1.Elapsed.TotalSeconds + "seconds");
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
 
                 return sb.ToString();
             }));
@@ -2017,14 +2018,144 @@ namespace Chapters
 
             #endregion
 
-          
+            #region Chapter 10
+
+            #region 1,6
+            var task1001_06 = Tuple.Create(TaskNumber.Task1, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n\nC H A P T E R 10\n");
+                
+                sb.AppendFormat("\n{0},{1}: Complex number in algebraic form: z = x + y i", TaskNumber.Task1, TaskNumber.Task6);
+                var res1001_06 = Chapter10Factory.PerformTask(TaskNumber.Task1);
+                sb.AppendFormat("\nData: {0}\ntemp: {1}\nRoot: {2}\nsum: {3}\nsubstract: {4}\ncomposition: {5}\ndevision: {6}\nabs: {7}\npow(5): {8}\n",
+                                res1001_06[0], res1001_06[1], string.Concat((res1001_06[2] as List<ComplexAlgebraic>).Select(x=>String.Format("{0} ,", x.ToString())).ToArray()), res1001_06[3], res1001_06[4], res1001_06[5], res1001_06[6], res1001_06[7], res1001_06[8]);
+                stopWatch1.Stop();
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
+
+                return sb.ToString();
+            }));
+            #endregion
+
+            #region 11,20
+            var task1011_20 = Tuple.Create(TaskNumber.Task11, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0},{1}: Complex number in trigonometric form: a = ρ(cosφ + i sinφ)", TaskNumber.Task11, TaskNumber.Task20);
+                var res1011_20 = Chapter10Factory.PerformTask(TaskNumber.Task11);
+                sb.AppendFormat("\nData: {0}\ntemp: {1}\nPow(5): {2}\nsum: {3}\nsubstract: {4}\ncomposition: {5}\ndevision: {6}\n",
+                                                res1011_20[0], res1011_20[1], res1011_20[2], res1011_20[3], res1011_20[4], res1011_20[5], res1011_20[6]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
+
+                return sb.ToString();
+            }));
+            #endregion
+
+            #region 16,24
+            var task1016_24 = Tuple.Create(TaskNumber.Task16, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0},{1}: Complex number in exponential form: a = ρ e^iφ", TaskNumber.Task16, TaskNumber.Task24);
+                var res1016_24 = Chapter10Factory.PerformTask(TaskNumber.Task16);
+                sb.AppendFormat("\nData: {0}\ntemp: {1}\nsum: {2}\nsubstract: {3}\ncomposition: {4}\ndevision: {5}\n",
+                                                res1016_24[0], res1016_24[1], res1016_24[2], res1016_24[3], res1016_24[4], res1016_24[5]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
+
+                return sb.ToString();
+            }));
+            #endregion
+
+            #region 02,07,12,18,23
+            var task1002_07_12_18_23 = Tuple.Create(TaskNumber.Task2, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0},{1},{2},{3},{4}: Common fraction: a/b", TaskNumber.Task2, TaskNumber.Task7, TaskNumber.Task12, TaskNumber.Task18, TaskNumber.Task23);
+                var res02_07_12_18_23 = Chapter10Factory.PerformTask(TaskNumber.Task2);
+                sb.AppendFormat("\nData: {0}\ntemp: {1}\nRound to decimal(5 digits): {2}\nreduct: {3}\ninvert: {4}\nsumFractions: {5}\nsubstractFractions: {6}\ncompositionFractions: {7}\ndevideFractions: {8}\n{0} > {1}: {9}\n{0} < {1}: {10}\n",
+                res02_07_12_18_23[0], res02_07_12_18_23[1], res02_07_12_18_23[2], res02_07_12_18_23[3], res02_07_12_18_23[4], res02_07_12_18_23[5], res02_07_12_18_23[6], res02_07_12_18_23[7], res02_07_12_18_23[8], res02_07_12_18_23[9], res02_07_12_18_23[10]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
+
+                return sb.ToString();
+            }));
+            #endregion
+
+            #region 3,8,13,17
+            var task1003_08_13_17 = Tuple.Create(TaskNumber.Task3, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0},{1},{2},{3}: Vector: (x,y,z)", TaskNumber.Task3, TaskNumber.Task8, TaskNumber.Task13, TaskNumber.Task17);
+                var res03_08_13_17 = Chapter10Factory.PerformTask(TaskNumber.Task3);
+                sb.AppendFormat("\nData: {0}temp: {1}\nlength: {2}\nsum: {3}scalar composition: {4}\nvector composition: {5}DirectionCosines: {6}\nAngle between: {7}\nCollinearity check: {8}\n",
+                res03_08_13_17[0], res03_08_13_17[1], res03_08_13_17[2], res03_08_13_17[3], res03_08_13_17[4], res03_08_13_17[5], res03_08_13_17[6], res03_08_13_17[7], res03_08_13_17[8]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
+
+                return sb.ToString();
+            }));
+            #endregion
+
+            #region 5,10
+            var task1005_10 = Tuple.Create(TaskNumber.Task5, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0},{1}: Straight: y = ax + b", TaskNumber.Task5, TaskNumber.Task10);
+                var res05_10 = Chapter10Factory.PerformTask(TaskNumber.Task5);
+                sb.AppendFormat("\nData: {0}\ntemp: {1}\nParallelity: {2}\nAngle between: {3}\nCross points: with oX: ({4};0), with oY: (0;{5})\nPerpendicularity: {6}\n",
+                res05_10[0], res05_10[1], res05_10[2], res05_10[3], (res05_10[4] as double[])[0], (res05_10[4] as double[])[1], res05_10[5]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
+
+                return sb.ToString();
+            }));
+            #endregion
+
+            #region 15,21,25
+            var task1015_21_25 = Tuple.Create(TaskNumber.Task15, new Func<object, string>(obj =>
+            {
+                var stopWatch1 = Stopwatch.StartNew();
+
+                var sb = new StringBuilder();
+                sb.AppendFormat("\n{0},{1},{2}: Date and time: YYYY:MM:DD HH:MM:SS", TaskNumber.Task15, TaskNumber.Task21, TaskNumber.Task25);
+                var res15_21_25 = Chapter10Factory.PerformTask(TaskNumber.Task15);
+                sb.AppendFormat("\nData: {0}\ntemp: {1}\nDay part: {2}\nSeason: {3}\nTime summation: {4}\nTime substraction: {5}\nCompare:\n{0} > {1} == {6}\n{0} < {1} == {7}\nAdd 18 days to {0} == {8}\n",
+                res15_21_25[0], res15_21_25[1], res15_21_25[2], res15_21_25[3], res15_21_25[4], res15_21_25[5], res15_21_25[6], res15_21_25[7], res15_21_25[8]);
+
+                stopWatch1.Stop();
+                sb.AppendFormat("\n{0} seconds", stopWatch1.Elapsed.TotalSeconds);
+
+                return sb.ToString();
+            }));
+            #endregion
+
+            #endregion
 
             var tasks = new[] {
 
                 task701, task702, task703, task704, task705, task706, task707, task708, task709, task710, task711, task712, task713, task714, task715, task716, task717, task718, task719, task720, task721, task722, task723, task724, task725,
                 task801, task802, task803, task804, task805, task806, task807, task808, task809, task810, task811, task812, task813, task814, task815, task816, task817, task818, task819, task820, task821, task822, task823, task824, task825,
                 task9101, task9102, task9103, task9104, task9105, task9106, task9107, task9108, task9109, task9110, task9111, task9112, task9113, task9114, task9115, task9116, task9117, task9118, task9119, task9120, task9121, task9122, task9123, task9124, task9125,
-                task9201, task9202, task9203, task9204, task9205, task9206, task9207, task9208, task9209, task9210, task9211, task9212, task9213, task9214, task9215, task9216, task9217, task9218, task9219, task9220, task9221, task9222, task9223, task9224, task9225
+                task9201, task9202, task9203, task9204, task9205, task9206, task9207, task9208, task9209, task9210, task9211, task9212, task9213, task9214, task9215, task9216, task9217, task9218, task9219, task9220, task9221, task9222, task9223, task9224, task9225,
+                task1001_06, task1011_20, task1016_24, task1002_07_12_18_23, task1003_08_13_17, task1005_10, task1015_21_25
 
             }.ToList();
 

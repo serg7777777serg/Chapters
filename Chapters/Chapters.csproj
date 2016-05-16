@@ -67,7 +67,15 @@
   <ItemGroup>
     <Compile Include="Common\Algorithm.cs" />
     <Compile Include="Common\BinaryFile.cs" />
+    <Compile Include="Common\CommonFraction.cs" />
+    <Compile Include="Common\ComplexAlgebraic.cs" />
+    <Compile Include="Common\ComplexExponential.cs" />
+    <Compile Include="Common\ComplexTrigonometric.cs" />
+    <Compile Include="Common\Straight.cs" />
+    <Compile Include="Common\MyDateTime.cs" />
+    <Compile Include="Common\Vector.cs" />
     <Compile Include="Common\Randomization.cs" />
+    <Compile Include="Common\Complex.cs" />
     <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\Tea.cs" />
     <Compile Include="Entity\Client.cs" />
@@ -79,12 +87,14 @@
     <Compile Include="Entity\Illness.cs" />
     <Compile Include="Common\Structures.cs" />
     <Compile Include="Enumerations\Chapter8TaskType.cs" />
+    <Compile Include="Enumerations\Chapter10TaskType.cs" />
     <Compile Include="Enumerations\Chapter9_2TaskType.cs" />
     <Compile Include="Enumerations\Chapter9_1TaskType.cs" />
     <Compile Include="Factories\Chapter7Factory.cs" />
     <Compile Include="Factories\Chapter8Factory.cs" />
     <Compile Include="Common\Matrix.cs" />
     <Compile Include="Factories\Chapter91Factory.cs" />
+    <Compile Include="Factories\Chapter10Factory.cs" />
     <Compile Include="Factories\Chapter92Factory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
